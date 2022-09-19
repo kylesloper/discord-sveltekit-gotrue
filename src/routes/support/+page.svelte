@@ -1,5 +1,5 @@
 <script>
-  import Support from '$lib/support/support.svelte'
+  import Support from '$lib/support/Support.svelte'
 </script>
 
 <Support />
