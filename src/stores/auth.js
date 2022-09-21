@@ -1,14 +1,6 @@
 import { writable } from 'svelte/store'
-import GoTrue from 'gotrue-js'
 import { redirect } from '@sveltejs/kit'
-
-const url = 'https://bespoke-haupia-b4041c.netlify.app'
-const goTrueInstance = new GoTrue({
-  APIUrl: `${url}/.netlify/identity`,
-  setCookie: true,
-})
-
-const goTrueUser = goTrueInstance.currentUser() || undefined
+import { goTrueUser } from '../constants/gotrue.js'
 
 export const authUserStore = writable(goTrueUser)
 
