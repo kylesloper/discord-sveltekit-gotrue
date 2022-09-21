@@ -46,7 +46,7 @@ export async function updateUserCustomSettings(fullname) {
 
 export async function signin(email, password) {
   try {
-    await goTrueInstance.login(email, password, true).then((user) => {
+    await goTrueUser.login(email, password, true).then((user) => {
       authUserStore.update(() => user)
       window.location.assign('/')
     })
@@ -57,15 +57,15 @@ export async function signin(email, password) {
 }
 
 export function register(email, password) {
-  return goTrueInstance.signup(email, password)
+  return goTrueUser.signup(email, password)
 }
 
 export function requestPasswordRecovery(email) {
-  return goTrueInstance.requestPasswordRecovery(email)
+  return goTrueUser.requestPasswordRecovery(email)
 }
 
 export function confirm(token) {
-  goTrueInstance
+  goTrueUser
     .confirm(token)
     .then(function (response) {
       alert(
@@ -80,7 +80,7 @@ export function confirm(token) {
 
 export async function recover(token) {
   try {
-    let existingUser = await goTrueInstance.recover(token)
+    let existingUser = await goTrueUser.recover(token)
 
     alert(
       'Account recovered! You are now logged in. Please change your password immediately by updating your security settings.',
