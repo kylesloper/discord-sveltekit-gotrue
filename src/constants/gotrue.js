@@ -1,7 +1,7 @@
 import GoTrue from 'gotrue-js'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 // const GoTrue = import('gotrue-js')
-const HOSTNAME = 'https://sveltekit-board.netlify.app'
+const HOSTNAME = 'https://bespoke-haupia-b4041c.netlify.app'
 const NETLIFY_FUNCTIONS_URL = HOSTNAME + '/.netlify/functions'
 const NETLIFY_IDENTITY_URL = HOSTNAME + '/.netlify/identity'
 const FUNC_DELETE_USER_URL = NETLIFY_FUNCTIONS_URL + '/delete-user'
