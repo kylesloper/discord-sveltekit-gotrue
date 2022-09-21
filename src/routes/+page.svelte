@@ -3,6 +3,7 @@
   import Overview from '$lib/overview/overview.svelte'
   import Recent from '$lib/roadmap/recent.svelte'
   import Support from '$lib/support/Support.svelte'
+  import { authUserStore, confirm, logout, recover } from '$stores/auth.js'
 </script>
 
 <svelte:head>
@@ -12,6 +13,9 @@
     content="Titan Mission Control — Operate your Moonface project in one place"
   />
 </svelte:head>
+{#if $authUserStore}
+  <h1>Logged in</h1>
+{/if}
 <Overview />
 <Recent />
 <Support />

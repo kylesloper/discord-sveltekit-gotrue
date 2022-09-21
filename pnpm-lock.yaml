@@ -8,6 +8,7 @@ specifiers:
   '@sveltejs/adapter-netlify': 1.0.0-next.78
   '@sveltejs/kit': next
   autoprefixer: ^10.4.11
+  gotrue-js: ^0.9.29
   postcss: ^8.4.16
   svelte: ^3.46.0
   svelte-preprocess: ^4.10.7
@@ -19,10 +20,11 @@ dependencies:
   '@fontsource/fira-mono': 4.5.9
   '@hotwired/turbo': 7.1.0
   '@sveltejs/adapter-netlify': 1.0.0-next.78
+  gotrue-js: 0.9.29
 
 devDependencies:
-  '@sveltejs/adapter-auto': 1.0.0-next.76
-  '@sveltejs/kit': 1.0.0-next.490_svelte@3.50.1+vite@3.1.2
+  '@sveltejs/adapter-auto': 1.0.0-next.78
+  '@sveltejs/kit': 1.0.0-next.492_svelte@3.50.1+vite@3.1.2
   autoprefixer: 10.4.11_postcss@8.4.16
   postcss: 8.4.16
   svelte: 3.50.1
@@ -121,19 +123,19 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@sveltejs/adapter-auto/1.0.0-next.76:
-    resolution: {integrity: sha512-JPNBcQllucX0pqchYY8iD7adSKO+11C4fVT78zH6VupULirdYhns3R0npTXU63AoWO4FknpSY35GUhtyB4yEnA==}
+  /@sveltejs/adapter-auto/1.0.0-next.78:
+    resolution: {integrity: sha512-kaOeJkFR5EQ6R0vsX59Pa+ITnS9PLzP6Zl7gazUltDUrBg7hcqwBRIIBj4w60OXW6IMSXShuxYUkR47MJn0H3w==}
     dependencies:
-      '@sveltejs/adapter-cloudflare': 1.0.0-next.35
+      '@sveltejs/adapter-cloudflare': 1.0.0-next.36
       '@sveltejs/adapter-netlify': 1.0.0-next.78
-      '@sveltejs/adapter-vercel': 1.0.0-next.76
+      '@sveltejs/adapter-vercel': 1.0.0-next.77
     transitivePeerDependencies:
       - encoding
       - supports-color
     dev: true
 
-  /@sveltejs/adapter-cloudflare/1.0.0-next.35:
-    resolution: {integrity: sha512-/o6kl2iLxiRGmhaf70fuVeMVP9S8OprmtOYcMj2QIWmpV5bdIXWJmZXLotrJUfipTroKf4sI8ULdjwf9HkQwoQ==}
+  /@sveltejs/adapter-cloudflare/1.0.0-next.36:
+    resolution: {integrity: sha512-obxJUQLfsPknrFJlqG+Ha5HqAj8YJy+tiL5rjbHbYTsunW+bx0rePL1Z+6nP4uGwAPWcbn+3vk2tWO5bFRaEKA==}
     dependencies:
       '@cloudflare/workers-types': 3.16.0
       esbuild: 0.15.8
@@ -147,8 +149,8 @@ packages:
       esbuild: 0.15.8
       set-cookie-parser: 2.5.1
 
-  /@sveltejs/adapter-vercel/1.0.0-next.76:
-    resolution: {integrity: sha512-Od9DBfeMwWC/sZNeCJw4TYVE3LMR8lGJivSdkXWgpvksgG+QizLyzTfvBacapId3wcu+7X4PPTLoH00o5iQGEQ==}
+  /@sveltejs/adapter-vercel/1.0.0-next.77:
+    resolution: {integrity: sha512-r4MqtP+lzx83HfcvI8PU0Yxzmxt6WQq9nzZETLboJouJzhSBUFIN5RmNZfEn6nNIlUwZbGQUEK/FxsRnnxI/Ig==}
     dependencies:
       '@vercel/nft': 0.22.1
       esbuild: 0.15.8
@@ -157,8 +159,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.490_svelte@3.50.1+vite@3.1.2:
-    resolution: {integrity: sha512-CxaP59RaFytMIO/I0tSKCZOJGIh87IKkSRYsNIjtEgENdjbs695KB9JieraEL908la+ujPMQLdXJmrC730fJzQ==}
+  /@sveltejs/kit/1.0.0-next.492_svelte@3.50.1+vite@3.1.2:
+    resolution: {integrity: sha512-DHpmsYHL/04VnNARWe4iEVoSowWNcPYyRfPNU5pb4aLHr89eYIUNp9gJDTxvyivBzgr5ifiitWfyAoP4h7M1Fg==}
     engines: {node: '>=16.14'}
     hasBin: true
     requiresBuild: true
@@ -838,6 +840,12 @@ packages:
     resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
     dev: true
 
+  /gotrue-js/0.9.29:
+    resolution: {integrity: sha512-NSFwJlFfWxHd1zHDitysbh+amFPHBAyQG1YmecZJTaSe8TlC7Wja1ewdUBikfJBblN3SqghS6aViMd+Q/pPzGQ==}
+    dependencies:
+      micro-api-client: 3.3.0
+    dev: false
+
   /graceful-fs/4.2.10:
     resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==}
     dev: true
@@ -950,6 +958,10 @@ packages:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
     dev: true
+
+  /micro-api-client/3.3.0:
+    resolution: {integrity: sha512-y0y6CUB9RLVsy3kfgayU28746QrNMpSm9O/AYGNsBgOkJr/X/Jk0VLGoO8Ude7Bpa8adywzF+MzXNZRFRsNPhg==}
+    dev: false
 
   /micromatch/4.0.5:
     resolution: {integrity: sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA==}
