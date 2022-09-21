@@ -11,9 +11,9 @@
       <div class="w-1.5 h-1.5 mt-1.5 bg-titan rounded-full" />
     </div>
   </div>
-  <div class="flex gap-x-12 mt-4">
+  <div class="flex flex-col lg:flex-row gap-x-12 gap-y-6 mt-4">
     <article
-      class="bg-not-black-900 rounded-3xl border-not-black-600 border-[0.093rem] px-8 py-5 w-[60%]"
+      class="bg-not-black-900 rounded-3xl border-not-black-600 border-[0.093rem] px-6 lg:px-8 py-5 w-full lg:w-[60%]"
     >
       <div class="flex justify-between items-center z-20">
         <h2 class="my-0">Roadmap</h2>

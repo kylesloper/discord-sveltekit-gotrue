@@ -14,8 +14,9 @@
   let speed = 0.08
 
   function handleMouseMove(event) {
-    mouseX = event.pageX
-    mouseY = event.pageY
+    const rect = event.target.getBoundingClientRect()
+    mouseX = event.clientX - rect.left
+    mouseY = event.clientY - rect.top
   }
 
   onMount(() => {
@@ -43,16 +44,18 @@
     <div class="my-0 text-4xl font-semibold">{header}</div>
     <h2 class="my-0 text-not-black-300">{caption}</h2>
   </header>
-  <Arrow fill={'#AEADAD'} />
-  <div class="absolute h-full w-full inset-0 pointer-events-none z-10">
-    <img
-      class="absolute w-[150%]"
-      style:left={`${ballX}px`}
-      style:top={`${ballY}px`}
-      id="gradient"
-      src="/gradient.png"
-      alt="gradient"
-    />
+  <Arrow className={'arrow pointer-events-none'} fill={'#AEADAD'} />
+  <div class="absolute left-0 top-0 h-full w-full pointer-events-none z-10">
+    <div class="relative w-full h-full p-16">
+      <img
+        class="absolute right-0 bottom-0"
+        style:left={`${ballX}px`}
+        style:top={`${ballY}px`}
+        id="gradient"
+        src="/gradient.png"
+        alt="gradient"
+      />
+    </div>
   </div>
 </article>
 

@@ -4,7 +4,7 @@
 
 <section class="mt-16 relative">
   <h3>Support</h3>
-  <div class="flex justify-between">
+  <div class="flex flex-col sm:flex-row justify-between gap-x-12 gap-y-6">
     <article>
       <h2>We are always here to help</h2>
       <h4>
@@ -28,12 +28,12 @@
         <h3 class="text-not-black-300 font-medium">Log a support ticket</h3>
       </div>
       <div
-        class="bg-not-black-900 border-not-black-600 border-[0.093rem] rounded-lg px-4 py-2 aspect-[259/165] w-[400px] max-w-full mt-2"
+        class="bg-not-black-900 border-not-black-600 border-[0.093rem] rounded-lg px-4 py-4 md:aspect-[259/165] w-full md:w-[400px] max-w-full mt-2"
       >
         <form action="" class="flex flex-col">
           <div class="flex flex-col">
             <div class="flex flex-col">
-              <h4 class="text-white">How severe is the issue?</h4>
+              <h4 class="text-white mt-0">How severe is the issue?</h4>
               <ul class="flex gap-4">
                 <li><div class="smlBtn">Not at all</div></li>
                 <li><div class="smlBtn">Mild</div></li>

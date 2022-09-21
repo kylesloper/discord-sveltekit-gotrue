@@ -2,14 +2,26 @@
   import Card from '$lib/overview/overview_card.svelte'
 </script>
 
-<section class=" border-not-black-400 border-b-[0.092rem] py-6">
+<section class=" border-not-black-400 border-b-[0.092rem] pb-6">
   <h3>Overview</h3>
-  <ul class="flex gap-8 pt-2 max-w-full overflow-x-scroll">
-    <li>
-      <Card header={1400} />
+  <ul
+    class="flex gap-8 pt-2 max-w-full lg:overflow-visible overflow-x-scroll overflow-y-hidden"
+  >
+    <li
+      id="firstCard"
+      class="lg:hover:scale-[103%] duration-150 lg:focus:scale-[100%]"
+    >
+      <a class="lgCard" href="/support">
+        <Card header={1400} caption={'visits this month'} /></a
+      >
     </li>
-    <li>
-      <Card header={72} caption={'happy smiles this month'} />
+    <li
+      id="secCard"
+      class="lg:hover:scale-[103%] duration-150 lg:focus:scale-[90%]"
+    >
+      <a class="lgCard" href="/support">
+        <Card header={72} caption={'happy smiles this month'} />
+      </a>
     </li>
   </ul>
 </section>
@@ -27,7 +39,11 @@
     border: 0.4rem solid rgba(0, 0, 0, 0);
     background-clip: padding-box;
   }
-  #gradient:first-of-type {
-    margin-right: -3rem;
+  .lgCard .arrow {
+    transform: translateX(0);
+    transition: 150ms ease-in-out;
+  }
+  .lgCard:hover .arrow {
+    transform: translateX(0.3rem);
   }
 </style>

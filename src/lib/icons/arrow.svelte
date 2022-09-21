@@ -2,11 +2,13 @@
   export let width = null
   export let height = '1rem'
   export let fill = 'white'
+  export let className
 </script>
 
 <svg
   {height}
   {width}
+  class={className}
   viewBox="0 0 42 30"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
@@ -22,14 +24,3 @@
     {fill}
   />
 </svg>
-
-<style>
-  #titanArrow {
-    transform: translateX(0);
-    transition: 150ms ease-in-out;
-  }
-  a:hover #titanArrow,
-  #titanArrow:hover {
-    transform: translateX(0.3rem);
-  }
-</style>

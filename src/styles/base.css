@@ -22,7 +22,16 @@
     @apply font-medium text-sm tracking-[-0.01] mt-3 mb-2 text-not-black-300;
   }
   .chip {
-    @apply bg-mf-neutral-800 hover:bg-mf-neutral-700 ease-in-out duration-200 text-card-800 px-2.5 py-[0.135rem] text-sm;
+    @apply bg-mf-neutral-800 hover:bg-mf-neutral-700 ease-in-out duration-200 text-card-800 px-2.5 py-[0.135rem] text-base;
+  }
+  * {
+    @apply focus-visible:ring-1 focus:outline-none ring-titan;
+  }
+  .chip.clickable {
+    @apply focus:ring-1 focus:outline-none ring-titan;
+  }
+  .lgCard a {
+    @apply focus:ring-4 ring-offset-1 focus:outline-none ring-titan;
   }
   .smlBtn {
     @apply px-2.5 py-1 border-not-black-600 border-[0.1rem] inline-block text-sm;
@@ -58,5 +67,23 @@
     border-radius: 999px; /* roundness of the scroll thumb */
     border: 0.4rem solid rgba(0, 0, 0, 0);
     background-clip: padding-box;
+  }
+  *::-webkit-scrollbar {
+    width: 1rem; /* width of the entire scrollbar */
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent; /* color of the tracking area */
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: #282828; /* color of the scroll thumb */
+    border-radius: 999px; /* roundness of the scroll thumb */
+    border: 0.4rem solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+  }
+  *,
+  ::before,
+  ::after {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: 0;
   }
 }
