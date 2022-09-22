@@ -2,7 +2,7 @@ import { writable } from 'svelte/store'
 import GoTrue from 'gotrue-js'
 import { error, redirect } from '@sveltejs/kit'
 
-const url = 'https://bespoke-haupia-b4041c.netlify.app/'
+const url = 'https://bespoke-haupia-b4041c.netlify.app'
 const goTrueInstance = new GoTrue({
   APIUrl: `${url}/.netlify/identity`,
   setCookie: true,
