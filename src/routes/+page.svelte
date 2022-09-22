@@ -3,7 +3,7 @@
   import Overview from '$lib/overview/overview.svelte'
   import Recent from '$lib/roadmap/recent.svelte'
   import Support from '$lib/support/Support.svelte'
-  import { authUserStore, confirm, logout, recover } from '$lib/Auth.js'
+  import { authUserStore, confirm, logout, recover } from '$stores/userStore'
 </script>
 
 <svelte:head>

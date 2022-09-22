@@ -1,6 +1,11 @@
 <script>
-  import { register } from '$lib/Auth.js'
-  import { authUserStore } from '$lib/Auth.js'
+  import { authUserStore } from '$stores/userStore'
+  import { register } from '$stores/userStore'
+  import { redirect } from '@sveltejs/kit'
+
+  if ($authUserStore) {
+    throw redirect(307, '/')
+  }
 
   let password = ''
   let email = ''

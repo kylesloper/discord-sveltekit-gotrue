@@ -1,20 +1,19 @@
 import { writable } from 'svelte/store'
-import pkg from 'gotrue-js'
-const { GoTrue } = pkg
-import { redirect } from '@sveltejs/kit'
+import GoTrue from 'gotrue-js'
+import { error, redirect } from '@sveltejs/kit'
 
-const url = 'https://bespoke-haupia-b4041c.netlify.app'
-const goTrueInstance = new GoTrue.default({
+const url = 'https://bespoke-haupia-b4041c.netlify.app/'
+const goTrueInstance = new GoTrue({
   APIUrl: `${url}/.netlify/identity`,
   setCookie: true,
 })
 
-const goTrueUser = goTrueInstance.currentUser() || undefined
+const user = goTrueInstance.currentUser() || undefined
 
-export const authUserStore = writable(goTrueUser)
+export const authUserStore = writable(user)
 
 export function logout() {
-  goTrueUser
+  user
     .logout()
     .then(() => {
       console.log(authUserStore)
@@ -26,43 +25,36 @@ export function logout() {
     })
 }
 
-export async function updateUserSecuritySettings(email, password) {
-  try {
-    const updatedUser = await goTrueUser.update({
-      email: email,
-      password: password,
-    })
-    console.log(updatedUser)
+export function updateUserSecuritySettings(email, password) {
+  return new Promise(function (resolve, reject) {
+    user
+      .update({ email: email, password: password })
+      .then((user) => {
+        console.log(user)
 
-    authUserStore.update(() => updatedUser)
-  } catch (e) {
-    alert(e.message)
-  }
+        authUserStore.update(() => user)
+        resolve()
+      })
+      .catch((e) => {
+        alert(e.message)
+        reject()
+      })
+  })
 }
 
-export async function updateUserCustomSettings(fullname) {
-  try {
-    const updatedUser = await goTrueUser.update({
-      data: { fullname: fullname },
-    })
-    console.log(updatedUser)
-
-    authUserStore.update(() => updatedUser)
-  } catch (e) {
-    alert(e.message)
-  }
-}
-
-export async function signin(email, password) {
-  try {
-    await goTrueInstance.login(email, password, true).then((user) => {
-      authUserStore.update(() => user)
-      window.location.assign('/')
-    })
-  } catch (e) {
-    alert(e.message)
-    throw e.message
-  }
+export function signin(email, password) {
+  return new Promise(function (resolve, reject) {
+    goTrueInstance
+      .login(email, password, true)
+      .then((user) => {
+        authUserStore.update(() => user)
+        window.location.assign('/')
+      })
+      .catch((e) => {
+        alert(e.message)
+        reject()
+      })
+  })
 }
 
 export function register(email, password) {
@@ -87,19 +79,13 @@ export function confirm(token) {
     })
 }
 
-export async function recover(token) {
-  try {
-    let existingUser = await goTrueInstance.recover(token)
-
-    alert(
-      'Account recovered! You are now logged in. Please change your password immediately by updating your security settings.',
-      JSON.stringify({ response })
-    )
-    console.log(`recovered account: ${existingUser}`)
-    authUserStore.update(() => existingUser)
-    window.location.assign('/settings')
-  } catch (e) {
-    console.log('something wrong with recovery')
-    alert(e.message)
-  }
+export function recover(token) {
+  goTrueInstance
+    .recover(token)
+    .then(function (response) {
+      alert('Account recovered!', JSON.stringify({ response }))
+    })
+    .catch(function (e) {
+      alert(e.message)
+    })
 }
