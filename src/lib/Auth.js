@@ -1,5 +1,6 @@
 import GoTrue from 'gotrue-js'
 import { redirect } from '@sveltejs/kit'
+import { onMount } from 'svelte'
 
 onMount(() => {
   const url = 'https://bespoke-haupia-b4041c.netlify.app'
