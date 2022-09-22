@@ -1,6 +1,6 @@
 <script>
-  import { register } from '$lib/auth.svelte'
-  import { authUserStore } from '$lib/auth.svelte'
+  import { register } from '$lib/Auth.js'
+  import { authUserStore } from '$lib/Auth.js'
 
   let password = ''
   let email = ''
