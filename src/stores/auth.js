@@ -1,6 +1,14 @@
 import { writable } from 'svelte/store'
+import GoTrue from 'gotrue-js'
 import { redirect } from '@sveltejs/kit'
-import { goTrueUser } from '../constants/gotrue.js'
+
+const url = 'https://bespoke-haupia-b4041c.netlify.app'
+const goTrueInstance = new GoTrue.default({
+  APIUrl: `${url}/.netlify/identity`,
+  setCookie: true,
+})
+
+const goTrueUser = goTrueInstance.currentUser() || undefined
 
 export const authUserStore = writable(goTrueUser)
 
@@ -46,7 +54,7 @@ export async function updateUserCustomSettings(fullname) {
 
 export async function signin(email, password) {
   try {
-    await goTrueUser.login(email, password, true).then((user) => {
+    await goTrueInstance.login(email, password, true).then((user) => {
       authUserStore.update(() => user)
       window.location.assign('/')
     })
@@ -57,15 +65,15 @@ export async function signin(email, password) {
 }
 
 export function register(email, password) {
-  return goTrueUser.signup(email, password)
+  return goTrueInstance.signup(email, password)
 }
 
 export function requestPasswordRecovery(email) {
-  return goTrueUser.requestPasswordRecovery(email)
+  return goTrueInstance.requestPasswordRecovery(email)
 }
 
 export function confirm(token) {
-  goTrueUser
+  goTrueInstance
     .confirm(token)
     .then(function (response) {
       alert(
@@ -80,7 +88,7 @@ export function confirm(token) {
 
 export async function recover(token) {
   try {
-    let existingUser = await goTrueUser.recover(token)
+    let existingUser = await goTrueInstance.recover(token)
 
     alert(
       'Account recovered! You are now logged in. Please change your password immediately by updating your security settings.',
