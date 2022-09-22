@@ -3,7 +3,7 @@
   import { register } from '$stores/userStore'
   import { redirect } from '@sveltejs/kit'
 
-  if ($authUserStore) {
+  if (!$authUserStore) {
     throw redirect(307, '/')
   }
 
