@@ -1,6 +1,6 @@
-<!-- <script>
-  import { register } from '$stores/auth.js'
-  import { authUserStore } from '$stores/auth.js'
+<script>
+  import { register } from '$lib/auth.svelte'
+  import { authUserStore } from '$lib/auth.svelte'
 
   let password = ''
   let email = ''
@@ -39,4 +39,4 @@
 </form>
 {#if showSuccessMessage}
   <p>Please check your email to verify and then login</p>
-{/if} -->
+{/if}
