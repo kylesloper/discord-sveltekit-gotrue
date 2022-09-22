@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import { register } from '$stores/auth.js'
   import { authUserStore } from '$stores/auth.js'
 
@@ -39,4 +39,4 @@
 </form>
 {#if showSuccessMessage}
   <p>Please check your email to verify and then login</p>
-{/if}
+{/if} -->

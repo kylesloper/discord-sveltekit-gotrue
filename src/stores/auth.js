@@ -1,5 +1,6 @@
 import { writable } from 'svelte/store'
-import GoTrue from 'gotrue-js'
+import pkg from 'gotrue-js'
+const { GoTrue } = pkg
 import { redirect } from '@sveltejs/kit'
 
 const url = 'https://bespoke-haupia-b4041c.netlify.app'
