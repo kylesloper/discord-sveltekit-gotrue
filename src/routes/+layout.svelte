@@ -8,7 +8,7 @@
 
   onMount(() => {
     const url = 'https://bespoke-haupia-b4041c.netlify.app'
-    const goTrueInstance = new GoTrue.default({
+    const goTrueInstance = new GoTrue({
       APIUrl: `${url}/.netlify/identity`,
       setCookie: true,
     })
