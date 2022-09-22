@@ -105,7 +105,6 @@
         alert(e.message)
       }
     }
-    recover()
     confirm()
   })
 </script>
